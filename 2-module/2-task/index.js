@@ -1,3 +1,7 @@
 function isEmpty(obj) {
-  // ваш код...
+  let propsQty = 0;
+  for (const prop in obj) {
+    propsQty += 1;
+  }
+  return propsQty === 0;
 }
