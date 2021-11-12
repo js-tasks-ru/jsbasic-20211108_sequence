@@ -3,8 +3,7 @@ function sumSalary(salaries) {
   for (const prop in salaries) {
     let objVal = salaries[prop];
     if (typeof objVal === 'number' &&
-        !isNaN(objVal) && objVal !== Infinity
-        && objVal !== -Infinity) {
+        isFinite(objVal)) {
       totalSalaries += salaries[prop];
     }
   }

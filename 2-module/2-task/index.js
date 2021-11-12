@@ -1,7 +1,6 @@
 function isEmpty(obj) {
-  let propsQty = 0;
   for (const prop in obj) {
-    propsQty += 1;
+    return false;
   }
-  return propsQty === 0;
+  return true;
 }
