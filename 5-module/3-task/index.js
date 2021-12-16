@@ -27,9 +27,10 @@ function arrowStat(leftArrows, rightArrows, counters, marginValue) {
 function initCarousel() {
   let rightArrows = document.getElementsByClassName("carousel__arrow_right");
   let leftArrows = document.getElementsByClassName("carousel__arrow_left");
-  let carouselInner = document.getElementsByClassName("carousel__inner")[0];
   let clickCounter = []; // Click counters per carousel
-  let slidesCount = document.getElementsByClassName("carousel__slide").length;
+  let totalSlidesCount = document.getElementsByClassName("carousel__slide").length;
+  let carouselsCount = document.getElementsByClassName("carousel").length;
+  let slidesCount = totalSlidesCount / carouselsCount;
 
   // Initialize click counters
   for (let i = 0; i < rightArrows.length; i++) {
@@ -41,6 +42,7 @@ function initCarousel() {
 
   for (let i = 0; i < rightArrows.length; i++) {
     rightArrows[i].onclick = function() {
+      let carouselInner = rightArrows[i].nextElementSibling.nextElementSibling;
       let offset = carouselInner.offsetWidth;
       ++clickCounter[i];
       carouselInner.style.transform = `translateX(${-offset * clickCounter[i]}px)`;
@@ -51,6 +53,7 @@ function initCarousel() {
 
   for (let i = 0; i < leftArrows.length; i++) {
     leftArrows[i].onclick = function() {
+      let carouselInner = rightArrows[i].nextElementSibling.nextElementSibling;
       let offset = carouselInner.offsetWidth;
       clickCounter[i]--;
       carouselInner.style.transform = `translateX(${-offset * clickCounter[i]}px)`;
