@@ -1,6 +1,3 @@
-// TO DO:
-// The closing button
-
 /**
  * Компонент, который реализует таблицу
  * с возможностью удаления строк
@@ -19,7 +16,6 @@ export default class UserTable {
   constructor(rows) {
     this.elem = this.makeTable();
     this.fillRows(rows);
-    console.log("Test");
   }
 
   makeTable() {
@@ -58,7 +54,7 @@ export default class UserTable {
       button.textContent = "X";
       button.onclick = function() {
         tr.remove();
-      }
+      };
       td.append(button);
       tr.append(td);
       this.elem.tBodies[0].append(tr);
