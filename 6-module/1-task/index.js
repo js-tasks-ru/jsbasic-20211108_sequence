@@ -40,7 +40,6 @@ export default class UserTable {
 
   fillRows(rows) {
     for (let row of rows) {
-      console.log(row);
       let tr = document.createElement('TR');
       for (let prop in row) {
         if (Object.prototype.hasOwnProperty.call(row, prop)) {
